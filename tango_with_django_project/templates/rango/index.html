@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %} <!--for loading static media files -->
+<html>
+<head>
+    <title>Rango</title>
+</head>
+<body>
+{% if categories %}
+ <ul>
+                {% for category in categories %}
+                <!-- Following line changed to add an HTML hyperlink -->
+                <li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+{% else %}
+       <strong>There are no categories present </strong>
+{% endif %}
+<h1>Rango Says ...</h1>
+hello world! <strong>{{ boldmessage }}</strong> <br />
+<a href="/rango/about/">About</a>
+<a href="/rango/add_category/">Add a New Category</a>
+<img src="{% static "rango.jpg" %}" alt= "Picture of Rango" />
+</body>
+</html>
