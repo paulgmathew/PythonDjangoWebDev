@@ -64,6 +64,9 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# for redirecting user to login page , this ensures the login_required(0 decorator will redirect user not logged in to url
+LOGIN_URL = '/rango/login/'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 #MEDIA_ROOT = ''
@@ -133,8 +136,8 @@ TEMPLATE_PATH,
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth',#USED FOR AUTHENTICATION PURPOSE
+    'django.contrib.contenttypes',#USED FOR AUTHENTICATION PURPOSE
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
@@ -149,6 +152,12 @@ INSTALLED_APPS = (
 
 
 )
+
+# for browser length session
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# for persistant session
+SESSION_COOKIE_AGE = 600
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
